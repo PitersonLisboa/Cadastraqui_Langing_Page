@@ -1,4 +1,5 @@
 import { HeroB2B } from "@/components/HeroB2B";
+import { InstitutionAccess } from "@/components/InstitutionAccess";
 import { StatsBar } from "@/components/StatsBar";
 import { AISelectionProcess } from "@/components/AISelectionProcess";
 import { CEBASOnboarding } from "@/components/CEBASOnboarding";
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <HeroB2B />
+      <InstitutionAccess />
       <StatsBar />
       <AISelectionProcess />
       <CEBASOnboarding />

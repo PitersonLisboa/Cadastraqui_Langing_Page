@@ -8,6 +8,7 @@ export function HeaderB2B() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
+    { label: "Instituições", href: "#instituicoes" },
     { label: "Recursos", href: "#recursos" },
     { label: "Compliance", href: "#compliance" },
     { label: "Casos de Uso", href: "#casos" },
