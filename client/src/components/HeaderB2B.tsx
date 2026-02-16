@@ -52,7 +52,7 @@ export function HeaderB2B() {
           <Button
             className="hidden md:flex"
             data-testid="button-demo"
-            onClick={() => window.open(import.meta.env.VITE_PORTAL_URL)}
+            onClick={() => window.location.href = "/plataforma"}
           >
             Acessar a plataforma
           </Button>
@@ -94,7 +94,7 @@ export function HeaderB2B() {
             </Button>
             <Button
               className="w-full"
-              onClick={() => window.open(import.meta.env.VITE_PORTAL_URL)}
+              onClick={() => window.location.href = "/plataforma"}
             >
               Acessar a plataforma
             </Button>

@@ -7,14 +7,31 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { HeaderB2B } from "@/components/HeaderB2B";
 import { FooterB2B } from "@/components/FooterB2B";
 import Home from "@/pages/Home";
+import Plataforma from "@/pages/Plataforma";
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/plataforma" component={Plataforma} />
       <Route component={NotFound} />
     </Switch>
+  );
+}
+
+function MainLayout() {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <HeaderB2B />
+      <main className="flex-1">
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route component={NotFound} />
+        </Switch>
+      </main>
+      <FooterB2B />
+    </div>
   );
 }
 
@@ -23,13 +40,14 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
-          <div className="min-h-screen flex flex-col">
-            <HeaderB2B />
-            <main className="flex-1">
-              <Router />
-            </main>
-            <FooterB2B />
-          </div>
+          <Switch>
+            {/* Plataforma tem layout próprio (sem header/footer da landing) */}
+            <Route path="/plataforma" component={Plataforma} />
+            {/* Todas as outras rotas usam o layout padrão */}
+            <Route>
+              <MainLayout />
+            </Route>
+          </Switch>
           <Toaster />
         </TooltipProvider>
       </ThemeProvider>
