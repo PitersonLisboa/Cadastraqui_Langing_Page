@@ -12,11 +12,11 @@ import { Building2, MapPin, ArrowRight, GraduationCap } from "lucide-react";
  */
 const institutions = [
   {
-    slug: "PUCMinas",
-    name: "PUC Minas",
-    fullName: "Pontifícia Universidade Católica de Minas Gerais",
-    city: "Belo Horizonte",
-    state: "MG",
+    slug: "PUCCampinas",
+    name: "PUC-Campinas",
+    fullName: "Pontifícia Universidade Católica de Campinas",
+    city: "Campinas",
+    state: "SP",
     initials: "PUC",
     color: "#1a237e",      // Azul marinho
     colorLight: "#e8eaf6",
@@ -24,30 +24,46 @@ const institutions = [
     active: true,
   },
   {
-    slug: "Metodista",
-    name: "Universidade Metodista",
+    slug: "FMG",
+    name: "Metodista Granbery",
+    fullName: "Faculdade Metodista Granbery",
+    city: "Juiz de Fora",
+    state: "MG",
+    initials: "FMG",
+    color: "#1b5e20",      // Verde escuro
+    colorLight: "#e8f5e9",
+    description: "Programa de Bolsas CEBAS para ensino superior",
+    active: true,
+  },
+  {
+    slug: "UNIMEP",
+    name: "UNIMEP",
+    fullName: "Universidade Metodista de Piracicaba",
+    city: "Piracicaba",
+    state: "SP",
+    initials: "UMP",
+    color: "#b71c1c",      // Vermelho escuro
+    colorLight: "#ffebee",
+    description: "Programa de Bolsas CEBAS para graduação e pós-graduação",
+    active: true,
+  },
+  {
+    slug: "UMESP",
+    name: "Metodista de São Paulo",
     fullName: "Universidade Metodista de São Paulo",
     city: "São Bernardo do Campo",
     state: "SP",
-    initials: "MET",
-    color: "#1b5e20",      // Verde escuro
-    colorLight: "#e8f5e9",
+    initials: "UMS",
+    color: "#e65100",      // Laranja escuro
+    colorLight: "#fff3e0",
     description: "Programa de Bolsas CEBAS para ensino superior",
     active: true,
   },
 ];
 
 export function InstitutionAccess() {
-  const portalBaseUrl = import.meta.env.VITE_PORTAL_URL || "";
-
-  const handleAccess = (slug: string) => {
-    // Se VITE_PORTAL_URL está configurado, usa ele como base
-    // Caso contrário, assume que é relativo (mesma origin)
-    if (portalBaseUrl) {
-      window.open(`${portalBaseUrl}/${slug}/login`, "_blank");
-    } else {
-      window.location.href = `/${slug}/login`;
-    }
+  const handleAccess = () => {
+    window.location.href = "/plataforma";
   };
 
   return (
@@ -77,7 +93,7 @@ export function InstitutionAccess() {
             <Card
               key={inst.slug}
               className="group relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer border-2 hover:border-primary/30"
-              onClick={() => handleAccess(inst.slug)}
+              onClick={() => handleAccess()}
               data-testid={`institution-card-${inst.slug}`}
             >
               <CardContent className="p-0">
